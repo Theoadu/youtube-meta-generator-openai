@@ -1,0 +1,11 @@
+{
+  "name": "netninja",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Theophilus E.K Adukpo <theoadu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^3.3.0"
+  }
+}

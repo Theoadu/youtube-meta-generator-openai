@@ -12,9 +12,31 @@ const generateMeta = async (title) => {
     max_tokens: 100,
   });
 
-  console.log(description.data.choices[0].message);
+  const tags = await openai.createChatCompletion({
+    model: 'gpt-3.5-turbo',
+    messages: [
+      {
+        role: 'user',
+        content: `Come up with 20 keywords for a YouTube video called ${title}`,
+      },
+    ],
+    max_tokens: 100,
+  });
+
+  console.log(tags.data.choices[0].message);
+};
+
+const generateImage = async (imageDescription) => {
+  const image = await openai.createImage({
+    prompt: imageDescription,
+    n: 1,
+    size: '512x512',
+  });
+
+  console.log(image.data.data[0].url);
 };
 
 module.exports = {
   generateMeta,
+  generateImage,
 };

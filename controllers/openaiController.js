@@ -25,7 +25,7 @@ const generateMeta = async (req, res) => {
       max_tokens: 100,
     });
 
-    console.log(tags.data.choices[0].message);
+    // console.log(tags.data.choices[0].message);
 
     res.status(200).json({
       description: description.data.choices[0].message,
@@ -33,7 +33,7 @@ const generateMeta = async (req, res) => {
     });
   } catch (error) {
     // do some logging here
-    console.log('Something went wrong here');
+    console.log(error.message)
   }
 };
 
@@ -47,13 +47,13 @@ const generateImage = async (req, res) => {
       size: '512x512',
     });
 
-    console.log(image.data.data[0].url);
+    // console.log(image.data.data[0].url);
     res.status(200).json({
       image: image.data.data[0].url,
     });
   } catch (error) {
-    // do some logging here
-    console.log('Something went wrong');
+    // do some logging here. a good candidate for logging using tools like datadog
+    console.log(error.message)
   }
 };
 

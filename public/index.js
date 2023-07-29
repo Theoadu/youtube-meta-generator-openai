@@ -10,27 +10,35 @@ const thumbnail = document.querySelector('.thumbnail img');
 // description and tags
 metaForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const res = await fetch('/openai/meta', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: metaForm.title.value }),
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch('/openai/meta', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: metaForm.title.value }),
+    });
+    const data = await res.json();
 
-  description.textContent = data.description.content;
-  tags.textContent = data.tags.content;
+    description.textContent = data.description.content;
+    tags.textContent = data.tags.content;
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 imageForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const res = await fetch('/openai/image', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      imageDescription: imageForm.imageDescription.value,
-    }),
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch('/openai/image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        imageDescription: imageForm.imageDescription.value,
+      }),
+    });
+    const data = await res.json();
 
-  thumbnail.setAttribute('src', data.url);
+    thumbnail.setAttribute('src', data.url);
+  } catch (error) {
+    console.log(error.message);
+  }
 });

@@ -11,6 +11,7 @@ The other input accepts an image description and then a 512x521 image is generat
 ## Authors
 
 - [@theaodu](https://www.github.com/theoadu)
+- Theophilus Adukpo
 
 
 ## Environment Variables

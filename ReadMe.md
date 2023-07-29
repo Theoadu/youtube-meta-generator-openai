@@ -1,7 +1,7 @@
 
 # Project Title
 
-A Simple App using OpenAI's chat completion and image generation features.
+A Simple App using OpenAI's chat completion and image generation features to generate a YouTube meta data and tags given a title. It also generates images based on desciption provided.
 
 The app has two inputs one of which accepts a YouTube Title and then it generates some meta data for that title with some tags
 
